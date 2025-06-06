@@ -1,0 +1,247 @@
+[gd_scene load_steps=19 format=3 uid="uid://dbfkq0jftfo14"]
+
+[ext_resource type="Script" uid="uid://b3ug3en601oxj" path="res://Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://bei7x67psb4c4" path="res://Assets_PixelAdventure/Main Characters/Mask Dude.png" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://dlxw588k17dwo" path="res://Player/camera_2d.gd" id="3_btcbx"]
+[ext_resource type="Texture2D" uid="uid://ceua5kqu7imcg" path="res://PruebaParticulas/SaltoPrueba.png" id="3_k53q1"]
+[ext_resource type="LabelSettings" uid="uid://bblwdfro341x1" path="res://UI/GUILabel.tres" id="4_gwnis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
+size = Vector2(21, 26.5)
+
+[sub_resource type="Animation" id="Animation_gwnis"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_vtle1"]
+resource_name = "fall"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+
+[sub_resource type="Animation" id="Animation_od3ui"]
+resource_name = "hurt"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41, 42]
+}
+
+[sub_resource type="Animation" id="Animation_btcbx"]
+resource_name = "idle"
+length = 1.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_fhl08"]
+resource_name = "jump"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [23]
+}
+
+[sub_resource type="Animation" id="Animation_k53q1"]
+resource_name = "walk"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_od3ui"]
+_data = {
+&"RESET": SubResource("Animation_gwnis"),
+&"fall": SubResource("Animation_vtle1"),
+&"hurt": SubResource("Animation_od3ui"),
+&"idle": SubResource("Animation_btcbx"),
+&"jump": SubResource("Animation_fhl08"),
+&"walk": SubResource("Animation_k53q1")
+}
+
+[sub_resource type="Curve" id="Curve_k53q1"]
+_data = [Vector2(0, 0.58427), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_k53q1"]
+offsets = PackedFloat32Array(0.201299, 0.922078)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fhl08"]
+gradient = SubResource("Gradient_k53q1")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.477064, 0.5)
+fill_to = Vector2(0.701835, 0.344037)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k53q1"]
+bg_color = Color(0.352941, 0.0666667, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhl08"]
+bg_color = Color(0.896901, 0.0127991, 3.85046e-07, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 14
+script = ExtResource("1_4ntmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l8h54")
+hframes = 11
+vframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2.25)
+shape = SubResource("RectangleShape2D_4ntmi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_od3ui")
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("3_k53q1")
+lifetime = 0.8
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+fixed_fps = 30
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 30.0
+scale_amount_curve = SubResource("Curve_k53q1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(1.5, 0.5)
+scale = Vector2(1.04688, 0.984375)
+texture = SubResource("GradientTexture2D_fhl08")
+height = 390.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -163
+limit_top = -126
+limit_right = 4059
+limit_bottom = 176
+drag_horizontal_enabled = true
+drag_horizontal_offset = 0.17
+script = ExtResource("3_btcbx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MensajeLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Frutas"
+label_settings = ExtResource("4_gwnis")
+
+[node name="FrutasLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+label_settings = ExtResource("4_gwnis")
+
+[node name="HPProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_right = 113.0
+offset_bottom = 12.0
+theme_override_styles/background = SubResource("StyleBoxFlat_k53q1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fhl08")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+
+[node name="RayCastDamage" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="RayCastDamage"]
+position = Vector2(1, 0)
+target_position = Vector2(0, 23)
+collision_mask = 2
+
+[node name="RayCast2D3" type="RayCast2D" parent="RayCastDamage"]
+position = Vector2(-7, 0)
+target_position = Vector2(0, 23)
+collision_mask = 2
+
+[node name="RayCast2D2" type="RayCast2D" parent="RayCastDamage"]
+position = Vector2(10, 0)
+target_position = Vector2(0, 23)
+collision_mask = 2
+
+[node name="AudioStreamPlayerJump" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayerHurt" type="AudioStreamPlayer" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

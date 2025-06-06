@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctyb0wlbqnm8x"]
+
+[ext_resource type="Script" uid="uid://dwecxqkshqtie" path="res://Scripts/main_menu.gd" id="1_06t4h"]
+[ext_resource type="FontFile" uid="uid://j8j6rawwl7w" path="res://Assets_PixelAdventure/Fonts/COMICATE.TTF" id="2_7vrkn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fu7sn"]
+font = ExtResource("2_7vrkn")
+font_size = 32
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_06t4h")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 50.0
+offset_top = 51.0
+offset_right = 377.0
+offset_bottom = 85.0
+text = "Mythical adventure"
+label_settings = SubResource("LabelSettings_fu7sn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 164.0
+offset_top = 118.0
+offset_right = 256.0
+offset_bottom = 219.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="FullScreenButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Full Screen"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/FullScreenButton" to="." method="_on_full_screen_button_pressed"]

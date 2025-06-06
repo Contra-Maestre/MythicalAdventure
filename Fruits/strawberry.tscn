@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://h7sodt3t7a6m"]
+
+[ext_resource type="Script" uid="uid://8o218qe361qj" path="res://Fruits/strawberry.gd" id="1_e8kwr"]
+[ext_resource type="Texture2D" uid="uid://gih5ed42qg6a" path="res://Assets_PixelAdventure/Items/Fruits/Strawberry.png" id="1_y1u1h"]
+[ext_resource type="Texture2D" uid="uid://3jfobdtuakdd" path="res://PruebaParticulas/PruebaParticulas.png" id="3_5l2ro"]
+
+[sub_resource type="Animation" id="Animation_7dlaj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_e8kwr"]
+resource_name = "Strawberry Animation"
+length = 0.9
+loop_mode = 1
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_460o7"]
+_data = {
+&"RESET": SubResource("Animation_7dlaj"),
+&"Strawberry Animation": SubResource("Animation_e8kwr")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e6l53"]
+radius = 15.0333
+
+[sub_resource type="Curve" id="Curve_5l2ro"]
+_data = [Vector2(0.0113636, 0.52809), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Strawberry" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_e8kwr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y1u1h")
+hframes = 17
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_460o7")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e6l53")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("3_5l2ro")
+lifetime = 4.0
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+fixed_fps = 45
+draw_order = 1
+direction = Vector2(0, -1)
+spread = 32.0
+gravity = Vector2(0, -3)
+initial_velocity_max = 40.0
+angular_velocity_max = 45.0
+scale_amount_curve = SubResource("Curve_5l2ro")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

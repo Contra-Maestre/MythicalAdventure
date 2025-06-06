@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5iohafcqafgc"]
+
+[ext_resource type="Script" uid="uid://b3w2o47ra2ppj" path="res://World/finde_nivel.gd" id="1_7ba31"]
+[ext_resource type="Texture2D" uid="uid://di1m7shyd3pjf" path="res://Assets_PixelAdventure/Items/Checkpoints/End/End (Idle).png" id="1_xm2fp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mjiq"]
+size = Vector2(42, 43)
+
+[node name="FindeNivel" type="Area2D"]
+script = ExtResource("1_7ba31")
+nextLevel = "res://World/dark_world.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xm2fp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_0mjiq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

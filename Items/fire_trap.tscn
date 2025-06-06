@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://cygv35fdys7xc"]
+
+[ext_resource type="Texture2D" uid="uid://t83a0xm4fcjb" path="res://Assets_PixelAdventure/Traps/Fire/On (16x32).png" id="1_7i5ce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgxp6"]
+atlas = ExtResource("1_7i5ce")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcrx4"]
+atlas = ExtResource("1_7i5ce")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3b5"]
+atlas = ExtResource("1_7i5ce")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jakca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgxp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcrx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st3b5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7i5ce"]
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_kgxp6"]
+offsets = PackedFloat32Array(0, 0.707792)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mcrx4"]
+gradient = SubResource("Gradient_kgxp6")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.509174, 0.536697)
+fill_to = Vector2(0.688073, 0.417431)
+
+[sub_resource type="Gradient" id="Gradient_7i5ce"]
+offsets = PackedFloat32Array(0, 0.62987)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kgxp6"]
+gradient = SubResource("Gradient_7i5ce")
+width = 512
+height = 512
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.481651, 0.53211)
+fill_to = Vector2(0.642202, 0.46789)
+
+[node name="FireTrap" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jakca")
+frame_progress = 0.0465284
+
+[node name="VolumetricLight" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.458824, 0.00392157, 0.247059)
+z_index = 10
+material = SubResource("CanvasItemMaterial_7i5ce")
+position = Vector2(-1, -33)
+scale = Vector2(3.55859, 3.00391)
+texture = SubResource("GradientTexture2D_mcrx4")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-3, 8)
+texture = SubResource("GradientTexture2D_kgxp6")
+height = 505.0
