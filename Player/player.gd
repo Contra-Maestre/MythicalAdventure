@@ -15,14 +15,17 @@ var life := 10:
 @onready var frutaLabel : Label = $CanvasLayer/HBoxContainer/FrutasLabel
 @onready var raycastdmg := $RayCastDamage
 @onready var particlePlayer : CPUParticles2D = $CPUParticles2D
+@onready var menuButton : MenuButton = $CanvasLayer/MenuButton
+@onready var quitPopup := menuButton.get_popup()
 
-enum estados {NORMAL, HURT}
+enum estados {NORMAL, HURT, PAUSE}
 var estadoActual = estados.NORMAL
 
 func _ready() -> void:
 	$CanvasLayer/HPProgressBar.value = life
 	PruebaAuto.player = self
 	particlePlayer.emitting = false
+	quitPopup.id_pressed.connect(quitSettings)
 
 func _physics_process(delta: float) -> void:
 	if estadoActual == estados.NORMAL:
@@ -78,3 +81,8 @@ func Dead():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "hurt":
 		estadoActual = estados.NORMAL
+
+func quitSettings(id):
+	match (id):
+		0:
+			get_tree().quit()

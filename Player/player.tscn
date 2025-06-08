@@ -225,6 +225,19 @@ max_value = 10.0
 value = 5.0
 show_percentage = false
 
+[node name="MenuButton" type="MenuButton" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.004
+offset_left = -70.0
+offset_top = 1.0
+offset_bottom = 31.04
+text = "Settings"
+item_count = 1
+popup/item_0/text = "Quit"
+popup/item_0/id = 0
+
 [node name="RayCastDamage" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="RayCastDamage"]
