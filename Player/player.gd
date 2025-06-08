@@ -43,6 +43,7 @@ func NormalProces(delta):
 	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
 		velocity.y -= jumpForce
 		particlePlayer.emitting = true
+		$AudioStreamPlayerJump.play()
 	
 	if !is_on_floor():
 		velocity.y += gravity
@@ -65,6 +66,7 @@ func TakeDamage(dmg):
 	if estadoActual != estados.HURT:
 		life -= dmg
 		aniPlayer.play("hurt")
+		$AudioStreamPlayerHurt.play()
 		estadoActual = estados.HURT
 		if life <= 0:
 			Dead()

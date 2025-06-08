@@ -1,10 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://dbfkq0jftfo14"]
+[gd_scene load_steps=21 format=3 uid="uid://dbfkq0jftfo14"]
 
 [ext_resource type="Script" uid="uid://b3ug3en601oxj" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bei7x67psb4c4" path="res://Assets_PixelAdventure/Main Characters/Mask Dude.png" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://dlxw588k17dwo" path="res://Player/camera_2d.gd" id="3_btcbx"]
 [ext_resource type="Texture2D" uid="uid://ceua5kqu7imcg" path="res://PruebaParticulas/SaltoPrueba.png" id="3_k53q1"]
 [ext_resource type="LabelSettings" uid="uid://bblwdfro341x1" path="res://UI/GUILabel.tres" id="4_gwnis"]
+[ext_resource type="AudioStream" uid="uid://ba2hxqf376lg" path="res://Assets_PixelAdventure/Sounds/Jump.ogg" id="6_vtle1"]
+[ext_resource type="AudioStream" uid="uid://bk01bmd5p2v58" path="res://Assets_PixelAdventure/Sounds/Hit.ogg" id="7_od3ui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(21, 26.5)
@@ -241,7 +243,9 @@ target_position = Vector2(0, 23)
 collision_mask = 2
 
 [node name="AudioStreamPlayerJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vtle1")
 
 [node name="AudioStreamPlayerHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_od3ui")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
