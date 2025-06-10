@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PruebFinalPlataforma2D"
-run/main_scene="uid://c64i8noovg6hm"
+run/main_scene="uid://ctyb0wlbqnm8x"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

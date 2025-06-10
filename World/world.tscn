@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c64i8noovg6hm"]
+[gd_scene load_steps=16 format=4 uid="uid://c64i8noovg6hm"]
 
 [ext_resource type="PackedScene" uid="uid://dbfkq0jftfo14" path="res://Player/player.tscn" id="1_62w18"]
 [ext_resource type="Texture2D" uid="uid://cx1qsqa4qwsus" path="res://Assets_PixelAdventure/Parallax/parallax-00.png" id="1_yf0ba"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bb7uoc3ovlo8i" path="res://Personajes/Enemies/cerdo_enemy.tscn" id="9_oe8m4"]
 [ext_resource type="PackedScene" uid="uid://b5iohafcqafgc" path="res://World/finde_nivel.tscn" id="10_w47uh"]
 [ext_resource type="PackedScene" uid="uid://bp73sa1grvhri" path="res://Items/platform.tscn" id="11_lo5ox"]
+[ext_resource type="Script" uid="uid://do1x2t64a843r" path="res://World/fall_damage.gd" id="12_h2aik"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8job"]
 texture = ExtResource("2_8a836")
@@ -106,6 +107,9 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_j8job")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wqet"]
+size = Vector2(4700, 49.5)
+
 [node name="World" type="Node"]
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
@@ -197,3 +201,13 @@ position = Vector2(228, 41)
 
 [node name="Platform" parent="." instance=ExtResource("11_lo5ox")]
 position = Vector2(1441, 90)
+
+[node name="FallDamage" type="Area2D" parent="."]
+collision_layer = 7
+script = ExtResource("12_h2aik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallDamage"]
+position = Vector2(1995, 236.25)
+shape = SubResource("RectangleShape2D_0wqet")
+
+[connection signal="body_entered" from="FallDamage" to="FallDamage" method="_on_body_entered"]

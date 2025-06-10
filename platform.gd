@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Path2D
 
 @export var speedPlatform : float = .2
