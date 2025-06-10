@@ -36,7 +36,7 @@ blend_mode = 1
 light_mode = 2
 
 [sub_resource type="Gradient" id="Gradient_kgxp6"]
-offsets = PackedFloat32Array(0, 0.707792)
+offsets = PackedFloat32Array(0, 0.337662)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mcrx4"]
@@ -67,7 +67,7 @@ sprite_frames = SubResource("SpriteFrames_jakca")
 frame_progress = 0.0465284
 
 [node name="VolumetricLight" type="Sprite2D" parent="."]
-modulate = Color(1, 0.458824, 0.00392157, 0.247059)
+modulate = Color(1, 0.458824, 0.00392157, 0.2)
 z_index = 10
 material = SubResource("CanvasItemMaterial_7i5ce")
 position = Vector2(-1, -33)

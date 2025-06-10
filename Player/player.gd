@@ -17,12 +17,14 @@ var life := 10:
 @onready var particlePlayer : CPUParticles2D = $CPUParticles2D
 @onready var menuButton : MenuButton = $CanvasLayer/MenuButton
 @onready var quitPopup := menuButton.get_popup()
+@onready var lightPlayer : PointLight2D = $PointLight2D
 
 enum estados {NORMAL, HURT, PAUSE}
 var estadoActual = estados.NORMAL
 
 func _ready() -> void:
 	$CanvasLayer/HPProgressBar.value = life
+	lightPlayer.enabled = false
 	PruebaAuto.player = self
 	particlePlayer.emitting = false
 	quitPopup.id_pressed.connect(quitSettings)
@@ -86,3 +88,7 @@ func quitSettings(id):
 	match (id):
 		0:
 			get_tree().quit()
+
+
+func _on_finde_nivel_change_level() -> void:
+	lightPlayer.enabled = true

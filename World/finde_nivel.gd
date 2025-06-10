@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var nextLevel : String
+@export var nextLevel : String 
 signal ChangeLevel
 
 func _on_body_entered(body: Node2D) -> void:

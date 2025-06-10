@@ -188,6 +188,7 @@ scale_amount_curve = SubResource("Curve_k53q1")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(1.5, 0.5)
 scale = Vector2(1.04688, 0.984375)
+enabled = false
 texture = SubResource("GradientTexture2D_fhl08")
 height = 390.0
 

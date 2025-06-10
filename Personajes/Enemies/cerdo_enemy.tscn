@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bb7seqblyty6j" path="res://Personajes/personajes.tscn" id="1_oagu3"]
 [ext_resource type="Script" uid="uid://c3qup426isnv4" path="res://Personajes/Enemies/cerdo_enemy.gd" id="2_337pu"]
 [ext_resource type="Texture2D" uid="uid://qh4778c8molj" path="res://Assets_PixelAdventure/Enemies/AngryPig/angryPig.png" id="2_teds6"]
+[ext_resource type="PackedScene" uid="uid://b128k8wr8md7w" path="res://TrapsGame/dmg_player.tscn" id="4_ot65d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_337pu"]
 size = Vector2(23, 21)
@@ -102,9 +103,6 @@ _data = {
 &"walk": SubResource("Animation_nboef")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ot65d"]
-size = Vector2(28, 21)
-
 [node name="CerdoEnemy" groups=["enemigo"] instance=ExtResource("1_oagu3")]
 script = ExtResource("2_337pu")
 
@@ -141,11 +139,4 @@ target_position = Vector2(-50, 0)
 
 [node name="RayCast2D" type="RayCast2D" parent="Damage" index="0"]
 
-[node name="dmgPlayer" type="Area2D" parent="." index="5"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dmgPlayer" index="0"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_ot65d")
-
-[connection signal="body_entered" from="dmgPlayer" to="." method="_on_dmg_player_body_entered"]
+[node name="dmgPlayer" parent="." index="5" instance=ExtResource("4_ot65d")]
