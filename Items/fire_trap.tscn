@@ -67,7 +67,6 @@ sprite_frames = SubResource("SpriteFrames_jakca")
 frame_progress = 0.0465284
 
 [node name="VolumetricLight" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 0.458824, 0.00392157, 0.247059)
 z_index = 10
 material = SubResource("CanvasItemMaterial_7i5ce")
@@ -76,7 +75,6 @@ scale = Vector2(3.55859, 3.00391)
 texture = SubResource("GradientTexture2D_mcrx4")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
 position = Vector2(-3, 8)
 texture = SubResource("GradientTexture2D_kgxp6")
 height = 505.0

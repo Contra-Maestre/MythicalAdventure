@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_6wewc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -128, 5, 0, 0, 0, 0, -87, -10, 0, 0, 0, 0, 51, -10, 0, 0, 0, 0, 94, 7, 0, 0, 0, 0, -128, 5)
+"points": PackedVector2Array(0, 0, 0, 0, 19, -103, 0, 0, 0, 0, 18, 65, 0, 0, 0, 0, 27, 65, 0, 0, 0, 0, 26, -102, 0, 0, 0, 0, 19, -103)
 }
 point_count = 5
 
@@ -17,7 +17,8 @@ curve = SubResource("Curve2D_6wewc")
 script = ExtResource("1_6wewc")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(36.7686, -10)
+position = Vector2(17.6695, 64.521)
+rotation = 1.57675
 progress = 167.37
 
 [node name="MovingPlatform" type="CharacterBody2D" parent="."]
