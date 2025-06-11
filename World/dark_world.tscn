@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://m1nptgad0t4o"]
+[gd_scene load_steps=11 format=4 uid="uid://m1nptgad0t4o"]
 
 [ext_resource type="Texture2D" uid="uid://cbmb5cipyhb2u" path="res://Assets_PixelAdventure/Terrain/Terrain (16x16).png" id="1_s4vdv"]
 [ext_resource type="PackedScene" uid="uid://cygv35fdys7xc" path="res://Items/fire_trap.tscn" id="2_kwh48"]
@@ -222,6 +222,24 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_ujjwj")
 
+[sub_resource type="Curve2D" id="Curve2D_iap5v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 30, -81, 0, 0, 0, 0, 29, 49)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ujjwj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 32, -86, 0, 0, 0, 0, 31, 48)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_oehsx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 37, -89, 0, 0, 0, 0, 36, 49)
+}
+point_count = 2
+
 [node name="DarkWorld" type="Node"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -244,12 +262,15 @@ position = Vector2(2137, 1)
 
 [node name="Platform" parent="PlatformStorage" instance=ExtResource("4_iap5v")]
 position = Vector2(1245, 14)
+curve = SubResource("Curve2D_iap5v")
 
 [node name="Platform2" parent="PlatformStorage" instance=ExtResource("4_iap5v")]
 position = Vector2(1380, 15)
+curve = SubResource("Curve2D_ujjwj")
 
 [node name="Platform3" parent="PlatformStorage" instance=ExtResource("4_iap5v")]
 position = Vector2(1455, 16)
+curve = SubResource("Curve2D_oehsx")
 
 [node name="FireTrapStorage" type="Node2D" parent="."]
 

@@ -88,7 +88,3 @@ func quitSettings(id):
 	match (id):
 		0:
 			get_tree().quit()
-
-
-func _on_finde_nivel_change_level() -> void:
-	lightPlayer.enabled = true
