@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bkmb7ehfsbv2d" path="res://Scripts/StateMachine/idle.gd" id="3_x3vf3"]
 [ext_resource type="LabelSettings" uid="uid://bblwdfro341x1" path="res://UI/GUILabel.tres" id="4_gwnis"]
 [ext_resource type="Script" uid="uid://0t6l0g303uwg" path="res://Scripts/StateMachine/moving.gd" id="4_x3vf3"]
-[ext_resource type="Script" uid="uid://bmtt0w55xbpd" path="res://Scripts/StateMachine/in_air.gd" id="5_apopc"]
+[ext_resource type="Script" uid="uid://drk6n73vrvwsj" path="res://Scripts/StateMachine/in_air.gd" id="5_apopc"]
 [ext_resource type="AudioStream" uid="uid://ba2hxqf376lg" path="res://Assets_PixelAdventure/Sounds/Jump.ogg" id="6_vtle1"]
 [ext_resource type="AudioStream" uid="uid://bk01bmd5p2v58" path="res://Assets_PixelAdventure/Sounds/Hit.ogg" id="7_od3ui"]
 
