@@ -1,11 +1,11 @@
 extends CharacterBody2D
 class_name Player
 
-var speed : int = 12000
+@export var speed : int = 12000
 var direction = 0.0
 const  gravity : float = 10.0
-var jumpForce : float = 250.0
-var damage : int = 1
+@export var jumpForce : float = 250.0
+@export var damage : int = 1
 var life := 10:
 	set(val):
 		life = val
@@ -26,7 +26,7 @@ func _ready() -> void:
 	$CanvasLayer/HPProgressBar.value = life
 	#lightPlayer.enabled = false
 	#PruebaAuto.player = self
-	#particlePlayer.emitting = false
+	particlePlayer.emitting = false
 	#quitPopup.id_pressed.connect(quitSettings)
 #
 #func _physics_process(delta: float) -> void:

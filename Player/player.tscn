@@ -1,14 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://dbfkq0jftfo14"]
+[gd_scene load_steps=22 format=3 uid="uid://dbfkq0jftfo14"]
 
 [ext_resource type="Script" uid="uid://b3ug3en601oxj" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bei7x67psb4c4" path="res://Assets_PixelAdventure/Main Characters/Mask Dude.png" id="1_l8h54"]
-[ext_resource type="Script" uid="uid://d0p2f1hdss0mm" path="res://Scripts/StateMachine/StateMachine.gd" id="2_00tjw"]
 [ext_resource type="Script" uid="uid://dlxw588k17dwo" path="res://Player/camera_2d.gd" id="3_btcbx"]
 [ext_resource type="Texture2D" uid="uid://ceua5kqu7imcg" path="res://PruebaParticulas/SaltoPrueba.png" id="3_k53q1"]
-[ext_resource type="Script" uid="uid://bkmb7ehfsbv2d" path="res://Scripts/StateMachine/idle.gd" id="3_x3vf3"]
 [ext_resource type="LabelSettings" uid="uid://bblwdfro341x1" path="res://UI/GUILabel.tres" id="4_gwnis"]
-[ext_resource type="Script" uid="uid://0t6l0g303uwg" path="res://Scripts/StateMachine/moving.gd" id="4_x3vf3"]
-[ext_resource type="Script" uid="uid://drk6n73vrvwsj" path="res://Scripts/StateMachine/in_air.gd" id="5_apopc"]
+[ext_resource type="Script" uid="uid://dd0otyr1xitq6" path="res://Scripts/state_mobing_machine.gd" id="6_5htga"]
 [ext_resource type="AudioStream" uid="uid://ba2hxqf376lg" path="res://Assets_PixelAdventure/Sounds/Jump.ogg" id="6_vtle1"]
 [ext_resource type="AudioStream" uid="uid://bk01bmd5p2v58" path="res://Assets_PixelAdventure/Sounds/Hit.ogg" id="7_od3ui"]
 
@@ -161,18 +158,8 @@ corner_radius_bottom_left = 10
 collision_mask = 14
 script = ExtResource("1_4ntmi")
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("2_00tjw")
-initialState = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_x3vf3")
-
-[node name="Moving" type="Node" parent="StateMachine"]
-script = ExtResource("4_x3vf3")
-
-[node name="InAir" type="Node" parent="StateMachine"]
-script = ExtResource("5_apopc")
+[node name="StateMovingMachine" type="Node" parent="."]
+script = ExtResource("6_5htga")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_l8h54")
