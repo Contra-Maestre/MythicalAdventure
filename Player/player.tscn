@@ -1,16 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://dbfkq0jftfo14"]
+[gd_scene load_steps=21 format=3 uid="uid://dbfkq0jftfo14"]
 
 [ext_resource type="Script" uid="uid://b3ug3en601oxj" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bei7x67psb4c4" path="res://Assets_PixelAdventure/Main Characters/Mask Dude.png" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://dlxw588k17dwo" path="res://Player/camera_2d.gd" id="3_btcbx"]
 [ext_resource type="Texture2D" uid="uid://ceua5kqu7imcg" path="res://PruebaParticulas/SaltoPrueba.png" id="3_k53q1"]
 [ext_resource type="LabelSettings" uid="uid://bblwdfro341x1" path="res://UI/GUILabel.tres" id="4_gwnis"]
-[ext_resource type="Script" uid="uid://dd0otyr1xitq6" path="res://Scripts/state_mobing_machine.gd" id="6_5htga"]
 [ext_resource type="AudioStream" uid="uid://ba2hxqf376lg" path="res://Assets_PixelAdventure/Sounds/Jump.ogg" id="6_vtle1"]
 [ext_resource type="AudioStream" uid="uid://bk01bmd5p2v58" path="res://Assets_PixelAdventure/Sounds/Hit.ogg" id="7_od3ui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(21, 26.5)
+size = Vector2(19, 26.5)
 
 [sub_resource type="Animation" id="Animation_gwnis"]
 length = 0.001
@@ -157,9 +156,7 @@ corner_radius_bottom_left = 10
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 14
 script = ExtResource("1_4ntmi")
-
-[node name="StateMovingMachine" type="Node" parent="."]
-script = ExtResource("6_5htga")
+jumpForce = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_l8h54")
@@ -168,7 +165,7 @@ vframes = 4
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 2.25)
+position = Vector2(1.5, 2.25)
 shape = SubResource("RectangleShape2D_4ntmi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

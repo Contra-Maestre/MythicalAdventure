@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c64i8noovg6hm"]
+[gd_scene load_steps=17 format=4 uid="uid://c64i8noovg6hm"]
 
 [ext_resource type="PackedScene" uid="uid://dbfkq0jftfo14" path="res://Player/player.tscn" id="1_62w18"]
 [ext_resource type="Texture2D" uid="uid://cx1qsqa4qwsus" path="res://Assets_PixelAdventure/Parallax/parallax-00.png" id="1_yf0ba"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://b5iohafcqafgc" path="res://World/finde_nivel.tscn" id="10_w47uh"]
 [ext_resource type="PackedScene" uid="uid://bp73sa1grvhri" path="res://Items/platform.tscn" id="11_lo5ox"]
 [ext_resource type="Script" uid="uid://do1x2t64a843r" path="res://World/fall_damage.gd" id="12_h2aik"]
-[ext_resource type="PackedScene" uid="uid://ddkq8icmdysac" path="res://TrapsGame/saw.tscn" id="13_0wqet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8job"]
 texture = ExtResource("2_8a836")
@@ -217,9 +216,6 @@ script = ExtResource("12_h2aik")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallDamage"]
 position = Vector2(1995, 236.25)
 shape = SubResource("RectangleShape2D_0wqet")
-
-[node name="Saw" parent="." instance=ExtResource("13_0wqet")]
-position = Vector2(170, 0)
 
 [connection signal="TrueLight" from="FindeNivel" to="Player" method="_on_finde_nivel_true_light"]
 [connection signal="body_entered" from="FallDamage" to="FallDamage" method="_on_body_entered"]
